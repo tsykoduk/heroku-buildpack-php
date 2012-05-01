@@ -60,7 +60,7 @@ echo "Launching apache"
 exec /app/apache/bin/httpd -DNO_DETACH
 EOF
 
-$BIN_DIR/pecl install imagick
+bin/pecl install imagick
 
 chmod +x boot.sh
 
