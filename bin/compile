@@ -60,6 +60,8 @@ echo "Launching apache"
 exec /app/apache/bin/httpd -DNO_DETACH
 EOF
 
+/app/php/bin/pecl install imagick
+
 chmod +x boot.sh
 
 # clean the cache
