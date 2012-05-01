@@ -47,8 +47,8 @@ mkdir -p bin
 ln -s /app/php/bin/php bin/php
 
 #install imagemagik pecl
-echo "-----> Installing ImageMagick"
-/app/php/bin/pecl install imagick
+# echo "-----> Installing ImageMagick"
+
 
 cat >>boot.sh <<EOF
 for var in \`env|cut -f1 -d=\`; do
@@ -60,6 +60,7 @@ tail -F /app/apache/logs/error_log &
 tail -F /app/apache/logs/access_log &
 export LD_LIBRARY_PATH=/app/php/ext
 export PHP_INI_SCAN_DIR=/app/www
+exec /app/php/bin/pecl install -f imagick
 echo "Launching apache"
 exec /app/apache/bin/httpd -DNO_DETACH
 EOF
