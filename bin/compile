@@ -38,6 +38,10 @@ PHP_URL="https://s3.amazonaws.com/php-lp/php-$PHP_VERSION.tar.gz"
 echo "-----> Bundling PHP version $PHP_VERSION"
 curl --silent --max-time 60 --location "$PHP_URL" | tar xz
 
+#install imagemagik pecl
+echo "-----> installing ImageMagick"
+bin/pecl install imagick
+
 # update config files
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
 cp $LP_DIR/conf/php.ini php
@@ -45,9 +49,6 @@ cp $LP_DIR/conf/php.ini php
 # make php available on bin
 mkdir -p bin
 ln -s /app/php/bin/php bin/php
-
-#install imagemagik pecl
-bin/pecl install imagick
 
 cat >>boot.sh <<EOF
 for var in \`env|cut -f1 -d=\`; do
