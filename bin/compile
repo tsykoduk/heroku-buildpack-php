@@ -39,8 +39,8 @@ echo "-----> Bundling PHP version $PHP_VERSION"
 curl --silent --max-time 60 --location "$PHP_URL" | tar xz
 
 #install imagemagik pecl
-echo "-----> installing ImageMagick"
-bin/pecl install imagick
+echo "-----> Installing ImageMagick"
+$LP_DIR/bin/pecl install imagick
 
 # update config files
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
