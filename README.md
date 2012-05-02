@@ -1,4 +1,4 @@
-Apache+PHP build pack
+Apache and PHP build pack
 ========================
 
 This is a build pack bundling PHP and Apache for Heroku apps.
